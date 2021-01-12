@@ -19,7 +19,6 @@ public class Product {
 	private LocalDateTime createdAt = LocalDateTime.now();
 	private Date updatedAt;
 	
-	
 	public long getIdProduct() {
 		return idProduct;
 	}
@@ -38,7 +37,7 @@ public class Product {
 	public void setPrice(long price) {
 		this.price = price;
 	}
-		public LocalDateTime getCreatedAt() {
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 	public void setCreatedAt(LocalDateTime createdAt) {
@@ -51,6 +50,4 @@ public class Product {
 		this.updatedAt = updatedAt;
 	}
 	
-	
-
 }

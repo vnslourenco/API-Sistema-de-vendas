@@ -1,13 +1,15 @@
 package br.com.vendas.api.modelo;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -16,26 +18,32 @@ public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@ManyToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private User idUser;
-	@ManyToOne
-	private Product idProduct;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Product> idProduct;
 	private OrderStatus orderStatus = OrderStatus.indefinido;
 	private SalesChannelStatus salesChannelStatus = SalesChannelStatus.indefinido;
 	private long price;
 	private LocalDateTime createdAt = LocalDateTime.now();
-	private Date updatedAt;
+	private LocalDateTime updatedAt = LocalDateTime.now();
 	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public User getIdUser() {
 		return idUser;
 	}
 	public void setIdUser(User idUser) {
 		this.idUser = idUser;
 	}
-	public Product getIdProduct() {
+	public List<Product> getIdProduct() {
 		return idProduct;
 	}
-	public void setIdProduct(Product idProduct) {
+	public void setIdProduct(List<Product> idProduct) {
 		this.idProduct = idProduct;
 	}
 	public OrderStatus getOrderStatus() {
@@ -62,14 +70,12 @@ public class Orders {
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-	public Date getUpdatedAt() {
+	public LocalDateTime getUpdatedAt() {
 		return updatedAt;
 	}
-	public void setUpdatedAt(Date updatedAt) {
+	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
-	
-	
 
+	
 }
