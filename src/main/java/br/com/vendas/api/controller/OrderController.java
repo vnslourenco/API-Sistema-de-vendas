@@ -33,14 +33,22 @@ public class OrderController {
 	public Orders createOrder(@RequestBody OrderDTOCadastrarForm dto) {
 		Orders order = new Orders();
 		
+		List<Product> listaProduct = new ArrayList<Product>();
+		
 		User user = userController.listUniqueUser(dto.getIdUser());
 		order.setIdUser(user);
 		
-//		Product product = productController.listUniqueProduct(dto.getIdProduct());
-//		order.setIdProduct(product);
+		for (int i = 0; i < dto.getIdProduct().size(); i++) {
+			Product product = productController.listUniqueProduct(dto.getIdProduct().get(i));
+//			System.out.println(product.getDescription());
+			listaProduct.add(product);
+		}
 		
+		order.setIdProduct(listaProduct);
 		
-//		return orderRepository.save(orders);
+		System.out.println(order.toString());
+		
+		return orderRepository.save(order);
 	
 	}
 	

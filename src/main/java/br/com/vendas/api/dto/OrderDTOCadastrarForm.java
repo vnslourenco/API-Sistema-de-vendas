@@ -7,8 +7,7 @@ public class OrderDTOCadastrarForm {
 	private long idUser;
 	private List<Long> idProduct;
 	private String SalesChannelStatus;
-	
-	
+		
 	public long getIdUser() {
 		return idUser;
 	}

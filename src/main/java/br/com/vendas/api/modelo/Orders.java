@@ -76,6 +76,14 @@ public class Orders {
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	@Override
+	public String toString() {
+		return "Orders [id=" + id + ", idUser=" + idUser + ", idProduct=" + idProduct + ", orderStatus=" + orderStatus
+				+ ", salesChannelStatus=" + salesChannelStatus + ", price=" + price + ", createdAt=" + createdAt
+				+ ", updatedAt=" + updatedAt + "]";
+	}
 
+	
 	
 }

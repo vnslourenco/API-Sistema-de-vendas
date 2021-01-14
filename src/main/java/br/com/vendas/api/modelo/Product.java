@@ -1,7 +1,6 @@
 package br.com.vendas.api.modelo;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +16,21 @@ public class Product {
 	private String description;
 	private long price;
 	private LocalDateTime createdAt = LocalDateTime.now();
-	private Date updatedAt;
+	private LocalDateTime updatedAt = LocalDateTime.now();
 	
+	public Product () {
+		
+	}
+	
+	
+	public Product(String description, long price) {
+		super();
+		this.description = description;
+		this.price = price;
+	}
+
+
+
 	public long getIdProduct() {
 		return idProduct;
 	}
@@ -43,11 +55,20 @@ public class Product {
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-	public Date getUpdatedAt() {
+	public LocalDateTime getUpdatedAt() {
 		return updatedAt;
 	}
-	public void setUpdatedAt(Date updatedAt) {
+	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Product [idProduct=" + idProduct + ", description=" + description + ", price=" + price + ", createdAt="
+				+ createdAt + ", updatedAt=" + updatedAt + "]";
+	}
+
+	
 	
 }

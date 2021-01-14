@@ -24,9 +24,11 @@ public class ProductController {
 		return productRepository.findAll();
 	}
 	
-	@GetMapping("/product/{idProduct}")
-	public Product listUniqueProduct(@PathVariable (value="idProduct") long list) {
-		return productRepository.findById(list);
+	@GetMapping("/product/{id}")
+	public Product listUniqueProduct(@PathVariable (value="id") long idPrduct) {
+		return productRepository.findByIdProduct(idPrduct).get();
 	}
+
+
 
 }
